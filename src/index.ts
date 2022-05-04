@@ -1,5 +1,5 @@
 import * as Utils from './lib';
 
-export {
-    Utils
-}
+export default Utils;
+
+export * from './lib';
