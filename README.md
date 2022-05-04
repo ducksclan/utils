@@ -8,13 +8,13 @@ You need to install this module as a dependency of your
 nodejs project with any package manager.
 
 ```bash
-$ npm install [Package name]
+$ npm install @ducksclan/utils
 ```
 
 `or`
 
 ```bash
-$ yarn add [Package name]
+$ yarn add @ducksclan/utils
 ```
 
 ## Links
