@@ -3,7 +3,7 @@ import { randomBytes, randomInt, randomUUID } from 'crypto';
 /**
  * Represents pseudo randomize methods based `crypto` module.
  */
-export class Generator {
+export default class Generator {
 
     /**
      * Generates a random RFC 4122 version 4 UUID.
