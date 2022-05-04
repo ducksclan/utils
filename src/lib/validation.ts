@@ -4,6 +4,10 @@ import {
     ValidatorOptions
 } from 'class-validator';
 
+/**
+ * represents validation result handle
+ * methods based `class-validation` module 
+ */
 export default class Validation {
 
     /**
