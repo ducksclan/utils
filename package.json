@@ -30,7 +30,7 @@
     "author": "ducksclan <ducks.clan.app@gmail.com>",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ducksclan/utils/.git"
+        "url": "https://github.com/ducksclan/utils.git"
     },
     "license": "MIT"
 }
