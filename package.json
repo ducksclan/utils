@@ -10,7 +10,9 @@
         "build": "webpack",
         "test": "mocha"
     },
-    "dependencies": {},
+    "dependencies": {
+        "class-validator": "^0.13.2"
+    },
     "devDependencies": {
         "@types/node": "^17.0.24",
         "ts-loader": "^9.2.8",
