@@ -1,4 +1,3 @@
-
 /**
  * returns one day in milliseconds `ms`, seconds `s`, minutes `m` or hours `h`
  * @param measure defines in which measure function will be returned

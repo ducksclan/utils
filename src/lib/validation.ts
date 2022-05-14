@@ -1,15 +1,10 @@
-import {
-    validate,
-    ValidationError,
-    ValidatorOptions
-} from 'class-validator';
+import { validate, ValidationError, ValidatorOptions } from 'class-validator';
 
 /**
  * represents validation result handle
- * methods based `class-validation` module 
+ * methods based `class-validation` module
  */
 export default class Validation {
-
     /**
      * validates given object based `class-validation` module
      * @param object checked object
@@ -23,14 +18,12 @@ export default class Validation {
         let options: ValidatorOptions = {
             validationError: {
                 target: false,
-                value: false
+                value: false,
             },
-            ...validatorOptions
-        }
+            ...validatorOptions,
+        };
 
-        return this.handle(
-            await validate(object, options)
-        );
+        return this.handle(await validate(object, options));
     }
 
     protected static handle(results: ValidationError[]): string[] {
@@ -40,9 +33,12 @@ export default class Validation {
             if (result?.constraints) {
                 for (const key in result.constraints) {
                     const error = result.constraints[key];
-                    if (Object.prototype.hasOwnProperty.call(
-                        result.constraints, key
-                    )) {
+                    if (
+                        Object.prototype.hasOwnProperty.call(
+                            result.constraints,
+                            key
+                        )
+                    ) {
                         errors.push(error);
                     }
                 }
@@ -51,5 +47,4 @@ export default class Validation {
 
         return errors;
     }
-
 }
