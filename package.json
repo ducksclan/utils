@@ -1,7 +1,7 @@
 {
     "name": "@ducksclan/utils",
     "version": "0.0.5",
-    "description": "this is utils module for ducksclan",
+    "description": "this is utility module for the ducksclan application",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {

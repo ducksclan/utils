@@ -1,11 +1,11 @@
 # Utils
 
-This is utils module for ducksclan.
+This is utility module for the ducksclan application.
 
 ## Getting started
 
-You need to install this module as a dependency of your
-nodejs project with any package manager.
+You need to install this module as a dependency of your nodejs project with any
+package manager.
 
 ```bash
 $ npm install @ducksclan/utils
