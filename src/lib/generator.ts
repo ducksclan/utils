@@ -1,10 +1,14 @@
-import { randomBytes, randomInt, randomUUID } from 'crypto';
+import {
+    generateKeyPairSync,
+    randomBytes,
+    randomInt,
+    randomUUID,
+} from 'crypto';
 
 /**
  * Represents pseudo randomize methods based `crypto` module.
  */
 export default class Generator {
-
     /**
      * Generates a random RFC 4122 version 4 UUID.
      * The UUID is generated using a cryptographic
@@ -22,7 +26,6 @@ export default class Generator {
      * The `size` is a multiple of 2.
      */
     static sequence(size: number): string {
-
         const max = 2 ** 30;
 
         if (size > max) {
@@ -50,15 +53,30 @@ export default class Generator {
      * @param size number of characters in returned string.
      */
     static code(size: number): string {
-
         const max = 9;
 
         if (size > max) {
             return this.code(max) + this.code(size - max);
         }
 
-        return Math.random().toString().substring(2, size + 2)
-
+        return Math.random()
+            .toString()
+            .substring(2, size + 2);
     }
 
+    static rsa(passphrase: string) {
+        return generateKeyPairSync('rsa', {
+            modulusLength: 4096,
+            publicKeyEncoding: {
+                type: 'spki',
+                format: 'pem',
+            },
+            privateKeyEncoding: {
+                type: 'pkcs8',
+                format: 'pem',
+                cipher: 'aes-256-cbc',
+                passphrase,
+            },
+        });
+    }
 }
