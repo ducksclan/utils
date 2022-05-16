@@ -1,4 +1,5 @@
 import {
+    RSAKeyPairOptions,
     generateKeyPairSync,
     randomBytes,
     randomInt,
@@ -64,19 +65,33 @@ export default class Generator {
             .substring(2, size + 2);
     }
 
-    static rsa(passphrase: string) {
-        return generateKeyPairSync('rsa', {
+    /**
+     * Generates a new asymmetric rsa key pair.
+     * @param passphrase {string} optional
+     * @returns rsa key pair
+     */
+    static rsa(passphrase?: string): {
+        publicKey: string;
+        privateKey: string;
+    } {
+        let options: RSAKeyPairOptions<'pem', 'pem'> = {
             modulusLength: 4096,
             publicKeyEncoding: {
                 type: 'spki',
                 format: 'pem',
             },
             privateKeyEncoding: {
-                type: 'pkcs8',
+                type: 'pkcs1',
                 format: 'pem',
-                cipher: 'aes-256-cbc',
-                passphrase,
             },
-        });
+        };
+
+        if (passphrase) {
+            options.privateKeyEncoding.type = 'pkcs8';
+            options.privateKeyEncoding.cipher = 'aes-256-cbc';
+            options.privateKeyEncoding.passphrase = passphrase;
+        }
+
+        return generateKeyPairSync('rsa', options);
     }
 }
