@@ -1,3 +1,7 @@
-export default function toNumber(str: string | number) {
-    return typeof str === 'string' ? parseInt(str.replace(/\D/, '')) : str;
+export default function toNumber(
+    value?: string | number | undefined
+): number | undefined {
+    return typeof value === 'string'
+        ? parseInt(value.replace(/\D/, ''))
+        : value;
 }
